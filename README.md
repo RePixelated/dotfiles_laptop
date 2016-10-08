@@ -295,6 +295,24 @@ Install `acpi` to read the battery status using the `-b` flag.
 sudo pacman -S acpi acpi_call
 ```
 
+### Touchpad
+Install the Synaptics input driver.
+```
+sudo pacman -S xf86-input-synaptics
+```
+
+Copy the configuration file and edit it according to preference.
+```
+sudo cp /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf
+sudo nano /etc/X11/xorg.conf.d/70-synaptics.conf
+```
+
+### Keyboard
+Change the keyboard layout in X11.
+```
+sudo localectl --no-convert set-x11-keymap hu,us pc105 grp:alt_caps_toggle
+```
+
 ## User Interface
 
 ### Awesome WM
