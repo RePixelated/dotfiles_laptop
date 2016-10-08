@@ -196,3 +196,48 @@ umount -R /mnt
 ```
 
 Restart the machine using `reboot`.
+
+# Post-Installation
+
+## Connect to the Internet
+Create a wireless connection profile.
+```
+wifi-menu -o
+nano /etc/netctl/*Profile*
+```
+
+Create a wired connection profile.
+```
+nano /etc/netctl/_wired
+```
+
+Install and enable the netctl services handling automatic network switching.
+```
+pacman -S ifplugd wpa_actiond
+systemctl enable netctl-auto@wlp2s0.service
+systemctl enable netctl-ifplugd@enp4s0.service
+```
+
+## User management
+Install zsh.
+```
+pacman -S zsh
+```
+
+Setup a new user.
+```
+useradd -m -g users -G wheel -s /bin/zsh zalan
+passwd zalan
+chfn zalan
+```
+
+Install sudo and set it up.
+```
+pacman -S sudo
+EDITOR=nano visudo
+```
+
+Login to the new user and skip the zsh setup.
+```
+exit
+```

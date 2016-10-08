@@ -1,0 +1,4 @@
+Description='Wired Connection'
+Interface=enp4s0
+Connection=ethernet
+IP=DHCP
