@@ -313,6 +313,15 @@ Change the keyboard layout in X11.
 sudo localectl --no-convert set-x11-keymap hu,us pc105 grp:alt_caps_toggle
 ```
 
+### Audio
+Install the ALSA Utilities.
+```
+sudo pacman -S alsa-utils
+```
+
+Run `alsamixer` and use `m` to unmute the *Master* audio channel and use the
+up/down arrow keys to set the volume.
+
 ## User Interface
 
 ### Awesome WM
