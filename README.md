@@ -289,6 +289,12 @@ primusrun glxgears
 Set the `BRIDGE` used by *optirun* to `primus` in
 `/etc/bumblebee/bumblebee.conf`.
 
+### Battery, Power management
+Install `acpi` to read the battery status using the `-b` flag.
+```
+sudo pacman -S acpi acpi_call
+```
+
 ## User Interface
 
 ### Awesome WM
