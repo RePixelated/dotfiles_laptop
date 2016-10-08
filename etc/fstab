@@ -1,0 +1,21 @@
+#
+# /etc/fstab: static file system information
+#
+# <file system>	<dir>	<type>	<options>	<dump>	<pass>
+# /dev/sda3 LABEL=Arch
+UUID=6981db20-02a0-435d-922a-cac457e5ce33	/	btrfs	rw,relatime,compress=lzo,ssd,space_cache,subvolid=258,subvol=__active/rootvol,subvol=__active/rootvol	0 0
+
+# /dev/sda3 LABEL=Arch
+UUID=6981db20-02a0-435d-922a-cac457e5ce33	/home	btrfs	rw,relatime,compress=lzo,ssd,space_cache,subvolid=259,subvol=__active/home,subvol=__active/home	0 0
+
+# /dev/sda3 LABEL=Arch
+UUID=6981db20-02a0-435d-922a-cac457e5ce33	/var	btrfs	rw,relatime,compress=lzo,ssd,space_cache,subvolid=260,subvol=__active/var,subvol=__active/var	0 0
+
+# /dev/sda3 LABEL=Arch
+UUID=6981db20-02a0-435d-922a-cac457e5ce33	/mnt/defvol	btrfs	rw,relatime,compress=lzo,ssd,space_cache	0 0
+
+# /dev/sda1 LABEL=Boot
+UUID=3F92-D4D4	/boot	vfat	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
+
+# /dev/sda2 LABEL=Swap
+UUID=9b7448ef-7848-4317-a3ba-06e5957c0616	none	swap	defaults	0 0
