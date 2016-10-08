@@ -241,3 +241,66 @@ Login to the new user and skip the zsh setup.
 ```
 exit
 ```
+
+## Hardware
+
+### Graphics
+Install the Nvidia and Intel drivers and bumblebee.
+```
+sudo pacman -S bbswitch bumblebee mesa xf86-video-intel nvidia
+```
+
+Enable the multilib repository and install the following for 32-bit support.
+```
+nano /etc/pacman.conf
+sudo pacman -S lib32-virtualgl lib32-nvidia-utils lib32-mesa-libgl
+```
+
+Add your regular user to the `bumblebee` group.
+```
+sudo gpasswd -a zalan bumblebee
+```
+
+Enable `bumblebeed.service`.
+
+Uncomment the `BusID` line in `/etc/bumblebee/xorg.conf.nvidia` using the
+decimal form of the hexadecimal Bus ID in `lspci`.
+
+Install Xorg.
+```
+sudo pacman -S xorg-server xorg-server-utils xorg-xinit
+```
+
+Install your [window manager](README.md#awesome-wm) and
+[terminal](README.md#termite) and set `.xinitrc` up.
+
+Test if bumblebee is working.
+```
+sudo pacman -S mesa-demos
+optirun glxgears -info
+```
+
+Install `primus`.
+```
+sudo pacman -S primus lib32-primus
+primusrun glxgears
+```
+
+Set the `BRIDGE` used by *optirun* to `primus` in
+`/etc/bumblebee/bumblebee.conf`.
+
+## User Interface
+
+### Awesome WM
+Install Awesome.
+```
+sudo pacman -S awesome
+```
+
+Edit the `.xinitrc` file to start `awesome`.
+
+### Termite
+Install Termite.
+```
+sudo pacman -S termite
+```
