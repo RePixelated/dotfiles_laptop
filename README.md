@@ -221,7 +221,7 @@ systemctl enable netctl-ifplugd@enp4s0.service
 ## User management
 Install zsh.
 ```
-pacman -S zsh
+pacman -S zsh zsh-completions
 ```
 
 Setup a new user.
@@ -336,4 +336,42 @@ Edit the `.xinitrc` file to start `awesome`.
 Install Termite.
 ```
 sudo pacman -S termite
+```
+
+Edit the configuration file in `~/.config/termite/config`
+
+### Zsh
+Create a redirecting `.zshenv`.
+```
+nano ~/.zshenv
+```
+
+Create a folder for the Zsh configuration files.
+```
+mkdir ~/.zsh
+```
+
+Create a redirecting `zshdir`.
+```
+nano ~/.zsh/zshdir
+chmod 777 ~/.zsh/zshdir
+```
+
+Create the following symbolic links:
+```
+cd ~/.zsh
+
+ln -s zshdir zlogin
+ln -s zshdir zlogout
+ln -s zshdir zprofile
+ln -s zshdir zshenv
+ln -s zshdir zshrc
+
+cd ~
+```
+
+And create their respective directories.
+```
+mkdir ~/.zsh/zshenv.d
+mkdir ~/.zsh/zshrc.d
 ```
